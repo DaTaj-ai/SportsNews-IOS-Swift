@@ -11,7 +11,6 @@
 		37A381722DE61BBC00284384 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A381712DE61BBC00284384 /* FavoritesViewController.swift */; };
 		37B3278B2DE4D51A00C0B963 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B3278A2DE4D51A00C0B963 /* AppDelegate.swift */; };
 		37B3278D2DE4D51A00C0B963 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B3278C2DE4D51A00C0B963 /* SceneDelegate.swift */; };
-		37B3278F2DE4D51A00C0B963 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B3278E2DE4D51A00C0B963 /* ViewController.swift */; };
 		37B327922DE4D51A00C0B963 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37B327902DE4D51A00C0B963 /* Main.storyboard */; };
 		37B327952DE4D51A00C0B963 /* SportsNews_IOS_Swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37B327932DE4D51A00C0B963 /* SportsNews_IOS_Swift.xcdatamodeld */; };
 		37B327972DE4D51E00C0B963 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B327962DE4D51E00C0B963 /* Assets.xcassets */; };
@@ -44,7 +43,6 @@
 		37B327872DE4D51A00C0B963 /* SportsNews-IOS-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SportsNews-IOS-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37B3278A2DE4D51A00C0B963 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37B3278C2DE4D51A00C0B963 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		37B3278E2DE4D51A00C0B963 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37B327912DE4D51A00C0B963 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37B327942DE4D51A00C0B963 /* SportsNews_IOS_Swift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SportsNews_IOS_Swift.xcdatamodel; sourceTree = "<group>"; };
 		37B327962DE4D51E00C0B963 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 			children = (
 				37A381632DE6159300284384 /* Features */,
 				37A381622DE6156600284384 /* App */,
-				37B3278E2DE4D51A00C0B963 /* ViewController.swift */,
 				37B327902DE4D51A00C0B963 /* Main.storyboard */,
 				37B327982DE4D51E00C0B963 /* LaunchScreen.storyboard */,
 				37B3279B2DE4D51E00C0B963 /* Info.plist */,
@@ -372,7 +369,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				37A3816D2DE6188800284384 /* HomeViewController.swift in Sources */,
-				37B3278F2DE4D51A00C0B963 /* ViewController.swift in Sources */,
 				37B327952DE4D51A00C0B963 /* SportsNews_IOS_Swift.xcdatamodeld in Sources */,
 				37B3278B2DE4D51A00C0B963 /* AppDelegate.swift in Sources */,
 				37A381722DE61BBC00284384 /* FavoritesViewController.swift in Sources */,
