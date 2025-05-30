@@ -1,46 +1,72 @@
 //
-//  FavoritesViewController.swift
+//  LeaguesTableViewController.swift
 //  SportsNews-IOS-Swift
 //
-//  Created by mohamed Tajeldin on 27/05/2025.
+//  Created by mohamed Tajeldin on 29/05/2025.
 //
 
 import UIKit
 
-class FavoritesViewController: UITableViewController {
+class LeaguesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
+        
     }
 
-    // MARK: - Table view data source
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 10
     }
 
-    /*
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mycell", for: indexPath)
 
-        // Configure the cell...
+               cell.textLabel?.text = "this is the title "
+               cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+               
+               cell.imageView?.image = UIImage(systemName: "trophy.fill")?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
+               
+               cell.contentView.backgroundColor = .secondarySystemBackground
+        
+               return cell
+           }
+           
+    
 
-        return cell
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Tabed")
+        
+        let storyboard = UIStoryboard(name: "LeagueEventsView", bundle: nil)
+           
+           
+           guard let leaguesVC = storyboard.instantiateViewController(withIdentifier: "eventsdetailsid") as? LeagueEventsCollectionViewController else {
+               print("ViewController with identifier 'Leagues' not found")
+               return
+           }
+           
+           
+           self.navigationController?.pushViewController(leaguesVC, animated: true)
+           
+
     }
-    */
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
