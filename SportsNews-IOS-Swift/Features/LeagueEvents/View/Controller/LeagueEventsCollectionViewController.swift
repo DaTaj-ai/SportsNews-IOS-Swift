@@ -1,15 +1,15 @@
 //
-//  HomeViewController.swift
+//  LeagueEventsCollectionViewController.swift
 //  SportsNews-IOS-Swift
 //
-//  Created by mohamed Tajeldin on 27/05/2025.
+//  Created by mohamed Tajeldin on 30/05/2025.
 //
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "eventCell"
 
-class HomeViewController: UICollectionViewController {
+class LeagueEventsCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +19,7 @@ class HomeViewController: UICollectionViewController {
 
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        collectionView.collectionViewLayout = UICollectionViewFlowLayout()
-        
+
         // Do any additional setup after loading the view.
     }
 
@@ -38,19 +37,20 @@ class HomeViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 20
+        return 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sportCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
-        
+        // Configure the cell
+    
         return cell
     }
 
@@ -85,27 +85,4 @@ class HomeViewController: UICollectionViewController {
     }
     */
 
-}
-
-extension HomeViewController : UICollectionViewDelegateFlowLayout{
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width:(collectionView.frame.width * 0.5)-10 , height:150)
-//        //(collectionView.frame.width * 0.5)
-//    }
-//
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let size = UIScreen.main.bounds.width * 0.45
-        return CGSize(width: size, height: size)
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Tabed")
-        guard let mySVC:LeaguesTableViewController = self.storyboard?.instantiateViewController(identifier: "Leagues") else {
-            print("no view here ")
-            return  }
-
-        self.navigationController?.pushViewController(mySVC, animated: true)
-
-    }
 }
