@@ -1,0 +1,10 @@
+name: SportsNews-IOS-Swift
+options:
+  bundleIdPrefix: com.yourteam
+targets:
+  SportsNews:
+    type: application
+    platform: iOS
+    sources: [Sources]
+    dependencies:
+      - framework: UIKit.framework
