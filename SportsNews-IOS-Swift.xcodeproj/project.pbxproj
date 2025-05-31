@@ -260,13 +260,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		37905F732DE9A1D90060ABA9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		37905F742DE9A20C0060ABA9 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,16 +320,8 @@
 			children = (
 				37A381672DE615BC00284384 /* Presenter */,
 				37A381662DE615B200284384 /* View */,
-				37A381652DE615A800284384 /* Model */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		37A381652DE615A800284384 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		37A381662DE615B200284384 /* View */ = {
@@ -378,7 +363,6 @@
 			children = (
 				37905F752DE9A2140060ABA9 /* Presenter */,
 				37905F742DE9A20C0060ABA9 /* View */,
-				37905F732DE9A1D90060ABA9 /* Model */,
 			);
 			path = LeagueEvents;
 			sourceTree = "<group>";
