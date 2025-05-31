@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zw3-ha-wpI" customClass="NoDataCollectionViewCell" customModule="Sportify" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="77" height="56"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="77" height="56"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDJ-Jl-OTH">
+                        <rect key="frame" x="9" y="14" width="60" height="29"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                        <color key="textColor" name="TextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="o4t-CP-Sot"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="yDJ-Jl-OTH" secondAttribute="trailing" constant="8" id="57c-a5-HRO"/>
+                <constraint firstAttribute="bottom" secondItem="yDJ-Jl-OTH" secondAttribute="bottom" constant="13" id="7NR-iC-8b6"/>
+                <constraint firstItem="yDJ-Jl-OTH" firstAttribute="leading" secondItem="zw3-ha-wpI" secondAttribute="leading" constant="9" id="SFX-pU-may"/>
+                <constraint firstItem="yDJ-Jl-OTH" firstAttribute="top" secondItem="zw3-ha-wpI" secondAttribute="top" constant="14" id="gvF-zx-9Ee"/>
+            </constraints>
+            <size key="customSize" width="77" height="56"/>
+            <point key="canvasLocation" x="150.38167938931298" y="-9.1549295774647899"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="TextColor">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

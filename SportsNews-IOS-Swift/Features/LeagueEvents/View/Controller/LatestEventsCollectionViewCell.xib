@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="ac1-Ky-g6q" userLabel="Latest Events Collection View Cell" customClass="LatestEventsCollectionViewCell" customModule="Sportify" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="185"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="350" height="185"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cricket" translatesAutoresizingMaskIntoConstraints="NO" id="Lzr-hs-0Cb">
+                        <rect key="frame" x="250" y="15" width="85" height="85"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="85" id="3TC-SE-q7u"/>
+                            <constraint firstAttribute="height" constant="85" id="CHx-2D-bCT"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cricket" translatesAutoresizingMaskIntoConstraints="NO" id="unb-1F-n3o">
+                        <rect key="frame" x="15" y="15" width="85" height="85"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="85" id="8ec-q0-DwA"/>
+                            <constraint firstAttribute="height" constant="85" id="j2d-Rx-qAb"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Is-I0-DE5">
+                        <rect key="frame" x="148.33333333333334" y="15.000000000000004" width="53.333333333333343" height="50.333333333333343"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="42"/>
+                        <color key="textColor" name="PrimaryColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Owy-eJ-8r0">
+                        <rect key="frame" x="249.66666666666666" y="137" width="85.333333333333343" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" name="TextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Team1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wey-9v-USk">
+                        <rect key="frame" x="15" y="137" width="85" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" name="TextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10-09-2025" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4G-hm-Yfq">
+                        <rect key="frame" x="130.33333333333334" y="117" width="89.333333333333343" height="19.333333333333343"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" name="TextSecondary"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 - 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scW-0i-4bW">
+                        <rect key="frame" x="155.66666666666666" y="75.333333333333329" width="39" height="21.666666666666671"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                        <color key="textColor" name="SecondaryColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUu-Ek-ZfI">
+                        <rect key="frame" x="152.33333333333334" y="146.33333333333334" width="45.666666666666657" height="21.666666666666657"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" name="TextSecondary"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="8Qj-6M-gIa"/>
+            <color key="backgroundColor" name="CardBG"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Owy-eJ-8r0" secondAttribute="bottom" constant="30" id="1Bo-DQ-eB1"/>
+                <constraint firstAttribute="trailing" secondItem="Lzr-hs-0Cb" secondAttribute="trailing" constant="15" id="3WJ-LC-a3N"/>
+                <constraint firstItem="Lzr-hs-0Cb" firstAttribute="top" secondItem="ac1-Ky-g6q" secondAttribute="top" constant="15" id="7ol-al-IJ3"/>
+                <constraint firstItem="x4G-hm-Yfq" firstAttribute="top" secondItem="scW-0i-4bW" secondAttribute="bottom" constant="20" id="AFA-NW-5aL"/>
+                <constraint firstItem="Lzr-hs-0Cb" firstAttribute="leading" secondItem="unb-1F-n3o" secondAttribute="trailing" constant="150" id="RO8-5R-rqe"/>
+                <constraint firstItem="x4G-hm-Yfq" firstAttribute="leading" secondItem="wey-9v-USk" secondAttribute="trailing" constant="30.329999999999998" id="YzR-gY-yfb"/>
+                <constraint firstItem="x4G-hm-Yfq" firstAttribute="centerX" secondItem="ac1-Ky-g6q" secondAttribute="centerX" id="Z2i-g9-Izv"/>
+                <constraint firstItem="Owy-eJ-8r0" firstAttribute="leading" secondItem="x4G-hm-Yfq" secondAttribute="trailing" constant="30" id="bv5-4G-qvC"/>
+                <constraint firstItem="kUu-Ek-ZfI" firstAttribute="centerX" secondItem="ac1-Ky-g6q" secondAttribute="centerX" id="dhN-Ji-WzJ"/>
+                <constraint firstItem="5Is-I0-DE5" firstAttribute="centerX" secondItem="ac1-Ky-g6q" secondAttribute="centerX" id="e5e-xz-W9t"/>
+                <constraint firstItem="unb-1F-n3o" firstAttribute="leading" secondItem="ac1-Ky-g6q" secondAttribute="leading" constant="15" id="gvW-li-7GY"/>
+                <constraint firstItem="kUu-Ek-ZfI" firstAttribute="top" secondItem="x4G-hm-Yfq" secondAttribute="bottom" constant="10" id="hVc-g1-Q7d"/>
+                <constraint firstAttribute="bottom" secondItem="wey-9v-USk" secondAttribute="bottom" constant="30" id="iHN-C8-GHy"/>
+                <constraint firstItem="scW-0i-4bW" firstAttribute="top" secondItem="5Is-I0-DE5" secondAttribute="bottom" constant="10" id="lDi-ZF-U6N"/>
+                <constraint firstAttribute="trailing" secondItem="Owy-eJ-8r0" secondAttribute="trailing" constant="15" id="pdX-lp-6hY"/>
+                <constraint firstItem="5Is-I0-DE5" firstAttribute="top" secondItem="ac1-Ky-g6q" secondAttribute="top" constant="15" id="pvy-D6-X9g"/>
+                <constraint firstItem="scW-0i-4bW" firstAttribute="centerX" secondItem="ac1-Ky-g6q" secondAttribute="centerX" id="s7t-br-93Q"/>
+                <constraint firstItem="wey-9v-USk" firstAttribute="leading" secondItem="ac1-Ky-g6q" secondAttribute="leading" constant="15" id="tgc-iE-Eey"/>
+                <constraint firstItem="unb-1F-n3o" firstAttribute="top" secondItem="ac1-Ky-g6q" secondAttribute="top" constant="15" id="wVF-qC-yaI"/>
+            </constraints>
+            <size key="customSize" width="185" height="127"/>
+            <connections>
+                <outlet property="LogoTeam1" destination="unb-1F-n3o" id="yFS-TD-1nd"/>
+                <outlet property="LogoTeam2" destination="Lzr-hs-0Cb" id="sLs-KT-gME"/>
+                <outlet property="MatchDate" destination="x4G-hm-Yfq" id="Qii-9c-5nX"/>
+                <outlet property="MatchScore" destination="scW-0i-4bW" id="DZI-g5-Ob2"/>
+                <outlet property="NameTeam1" destination="wey-9v-USk" id="8tb-dt-yoG"/>
+                <outlet property="NameTeam2" destination="Owy-eJ-8r0" id="0L7-mo-iQp"/>
+                <outlet property="Time" destination="kUu-Ek-ZfI" id="PcD-CW-DRK"/>
+            </connections>
+            <point key="canvasLocation" x="419.84732824427482" y="-59.507042253521128"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="cricket" width="2000" height="2000"/>
+        <namedColor name="CardBG">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryColor">
+            <color red="0.70200002193450928" green="0.61599999666213989" blue="0.85900002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextSecondary">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
