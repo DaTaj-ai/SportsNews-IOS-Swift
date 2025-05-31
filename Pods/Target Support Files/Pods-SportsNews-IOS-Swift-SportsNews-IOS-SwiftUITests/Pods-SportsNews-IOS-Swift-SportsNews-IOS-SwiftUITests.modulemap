@@ -1,0 +1,6 @@
+framework module Pods_SportsNews_IOS_Swift_SportsNews_IOS_SwiftUITests {
+  umbrella header "Pods-SportsNews-IOS-Swift-SportsNews-IOS-SwiftUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
