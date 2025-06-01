@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HomeCollectionViewCell" customModule="SportsNews_IOS_Swift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="299" height="453"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="299" height="453"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fjg-oE-HJZ">
+                        <rect key="frame" x="0.0" y="0.0" width="299" height="350"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="350" id="yzs-PW-lBv"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdq-Pe-PtL">
+                        <rect key="frame" x="0.0" y="407" width="299" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Rdq-Pe-PtL" secondAttribute="bottom" constant="16" id="1Ya-ek-MRJ"/>
+                <constraint firstItem="Rdq-Pe-PtL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7vN-hU-AEM"/>
+                <constraint firstItem="fjg-oE-HJZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="98E-1A-y73"/>
+                <constraint firstAttribute="trailing" secondItem="fjg-oE-HJZ" secondAttribute="trailing" id="Rbh-Ov-sDm"/>
+                <constraint firstItem="fjg-oE-HJZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cs2-nK-98j"/>
+                <constraint firstAttribute="trailing" secondItem="Rdq-Pe-PtL" secondAttribute="trailing" id="hQW-Hj-tWO"/>
+                <constraint firstAttribute="bottom" secondItem="fjg-oE-HJZ" secondAttribute="bottom" id="s3l-zq-4Bq"/>
+            </constraints>
+            <size key="customSize" width="299" height="453"/>
+            <connections>
+                <outlet property="image" destination="fjg-oE-HJZ" id="9zU-DZ-V4O"/>
+                <outlet property="title" destination="Rdq-Pe-PtL" id="fcj-Ca-cUC"/>
+            </connections>
+            <point key="canvasLocation" x="365.64885496183206" y="130.63380281690141"/>
+        </collectionViewCell>
+    </objects>
+</document>
