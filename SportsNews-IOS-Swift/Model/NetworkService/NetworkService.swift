@@ -3,7 +3,7 @@ import Foundation
 protocol NetworkSProtocol {
     static func fetchSports(sportType: String, completionHandler: @escaping (LeaguesResponse?) -> Void)
     static func fetchLeaguesDetails(sportType: String, leaguesKey: String, completionHandler: @escaping (Any?) -> Void)
-    static func fetchPlayers(sportType: String, teamName: String, completionHandler: @escaping (TeamPlayersResponse?) -> Void)
+    static func fetchPlayers(sportType: String, teamKey: Int, completionHandler: @escaping (TeamPlayersResponse?) -> Void)
 }
 
 class NetworkService: NetworkSProtocol {
@@ -129,38 +129,38 @@ class NetworkService: NetworkSProtocol {
         }.resume()
     }
     
-    static func fetchPlayers(sportType: String, teamName: String, completionHandler: @escaping (TeamPlayersResponse?) -> Void) {
+    static func fetchPlayers(sportType: String, teamKey: Int, completionHandler: @escaping (TeamPlayersResponse?) -> Void) {
         var components = URLComponents(string: "\(baseURL)\(sportType)/")!
         components.queryItems = [
             URLQueryItem(name: "APIkey", value: apiKey),
             URLQueryItem(name: "met", value: "Teams"),
-            URLQueryItem(name: "teamKey", value: teamName)
+            URLQueryItem(name: "teamId", value: "\(teamKey)")
         ]
-        
+
         guard let url = components.url else {
             print("❌ Invalid URL for fetchPlayers")
             completionHandler(nil)
             return
         }
-        
+
         print("🌐 Fetching players from: \(url)")
-        
+
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 print("❌ Error fetching players: \(error)")
                 completionHandler(nil)
                 return
             }
-            
+
             guard let data = data else {
                 print("❌ No data returned for players")
                 completionHandler(nil)
                 return
             }
-            
+
             do {
                 let decoded = try JSONDecoder().decode(TeamPlayersResponse.self, from: data)
-                print("✅ Players decoded: \(decoded.result.count) players found")
+                print("✅ Players decoded: \(decoded.result.count) teams found")
                 completionHandler(decoded)
             } catch {
                 print("❌ Decoding error in fetchPlayers: \(error)")
@@ -168,6 +168,7 @@ class NetworkService: NetworkSProtocol {
             }
         }.resume()
     }
+
     static func fetchTeamsOfLeague(sportType: String, leagueKey: String, completionHandler: @escaping ([Team]?) -> Void) {
         let fromDate = getDateString(offsetByYears: -1)
         let toDate = getDateString(offsetByYears: 0)
