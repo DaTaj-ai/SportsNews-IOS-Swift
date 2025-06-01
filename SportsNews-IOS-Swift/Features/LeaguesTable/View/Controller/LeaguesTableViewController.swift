@@ -4,16 +4,40 @@
 //
 //  Created by mohamed Tajeldin on 29/05/2025.
 //
+// static func fetchSports(sportType: String, completionHandler: @escaping (LeaguesResponse?) -> Void)
+//
 
 import UIKit
+import Kingfisher
 
-class LeaguesTableViewController: UITableViewController {
+protocol LeaguesTableViewControllerProtocal {
+    func renderTableView(res:LeaguesResponse)
+    //func navigateToDetails(with League: league)
 
+}
+
+class LeaguesTableViewController: UITableViewController ,LeaguesTableViewControllerProtocal {
+    
+    var presenter: LeaguesTablePresenter!
+    
+
+
+    func renderTableView(res: LeaguesResponse) {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
         
+        
+        let nib = UINib(nibName:"LeagueTableCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "leagueCell")
+        
+        
+        tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
+        presenter.getDataFromService()
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -30,23 +54,24 @@ class LeaguesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 10
+        return presenter.leaguesResponse?.result.count ?? 0
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "mycell", for: indexPath)
-
-               cell.textLabel?.text = "this is the title "
-               cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-               
-               cell.imageView?.image = UIImage(systemName: "trophy.fill")?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
-               
-               cell.contentView.backgroundColor = .secondarySystemBackground
+        let cell = tableView.dequeueReusableCell(withIdentifier: "leagueCell", for: indexPath) as! LeagueTableCell
         
-               return cell
-           }
+        cell.leagueName?.text = presenter.leaguesResponse?.result[indexPath.row].leagueName
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        
+        let url = URL(string: presenter.leaguesResponse?.result[indexPath.row].leagueLogo ?? "")
+        cell.LeagueImage?.kf.setImage(with:url )
+        
+        cell.contentView.backgroundColor = .secondarySystemBackground
+        
+        return cell
+        
+    }
            
     
 

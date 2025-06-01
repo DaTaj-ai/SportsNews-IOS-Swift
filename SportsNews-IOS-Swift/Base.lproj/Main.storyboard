@@ -29,29 +29,6 @@
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="C7k-Zo-1ex">
                                     <rect key="frame" x="0.0" y="0.0" width="286" height="287"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down.on.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fIC-0X-OO4">
-                                            <rect key="frame" x="0.0" y="-1.3333333333333286" width="286" height="133.66666666666669"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="130" id="yhO-cq-zOG"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcq-1Q-a0G">
-                                            <rect key="frame" x="-1" y="142" width="286" height="145"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="fIC-0X-OO4" firstAttribute="leading" secondItem="C7k-Zo-1ex" secondAttribute="leading" id="7Co-rR-pML"/>
-                                        <constraint firstAttribute="trailing" secondItem="fIC-0X-OO4" secondAttribute="trailing" id="DT5-Iq-tLH"/>
-                                        <constraint firstAttribute="bottom" secondItem="Vcq-1Q-a0G" secondAttribute="bottom" id="PYT-Pa-NeE"/>
-                                        <constraint firstItem="Vcq-1Q-a0G" firstAttribute="leading" secondItem="C7k-Zo-1ex" secondAttribute="leading" id="TIU-Ao-emn"/>
-                                        <constraint firstItem="Vcq-1Q-a0G" firstAttribute="top" secondItem="fIC-0X-OO4" secondAttribute="bottom" constant="12" id="XzJ-GU-DYg"/>
-                                        <constraint firstAttribute="trailing" secondItem="Vcq-1Q-a0G" secondAttribute="trailing" id="Zn1-Cg-4PG"/>
-                                        <constraint firstItem="fIC-0X-OO4" firstAttribute="top" secondItem="C7k-Zo-1ex" secondAttribute="top" id="noa-GH-3vB"/>
-                                    </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="286" height="287"/>
                             </collectionViewCell>
@@ -114,7 +91,7 @@
         <!--Favorites-->
         <scene sceneID="ksx-fC-VQb">
             <objects>
-                <tableViewController storyboardIdentifier="Leagues" id="Pfa-I5-JMk" customClass="LeaguesTableViewController" customModule="SportsNews_IOS_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="favoriteScreen" id="Pfa-I5-JMk" customClass="FavoritesViewController" customModule="SportsNews_IOS_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="C5i-EQ-Gvo">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,7 +121,6 @@
     <resources>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="sportscourt.fill" catalog="system" width="128" height="83"/>
-        <image name="square.and.arrow.down.on.square" catalog="system" width="122" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
