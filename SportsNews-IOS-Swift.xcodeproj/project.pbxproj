@@ -309,7 +309,6 @@
 				845F52B72DEB9D6300908DD6 /* NoDataCollectionViewCell.xib */,
 				37905F772DE9A2B70060ABA9 /* LeagueEventsView.storyboard */,
 				37A3816B2DE616F000284384 /* ClubDetails */,
-				845F52BA2DEBB4CC00908DD6 /* SimpleHeaderView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -378,6 +377,7 @@
 		37A381692DE616A000284384 /* LeaguesTable */ = {
 			isa = PBXGroup;
 			children = (
+				845F52BA2DEBB4CC00908DD6 /* SimpleHeaderView.swift */,
 				37B41EFC2DE898C600DE4751 /* Presenter */,
 				37B41EFB2DE898BE00DE4751 /* View */,
 				37B41EFA2DE898B100DE4751 /* Model */,

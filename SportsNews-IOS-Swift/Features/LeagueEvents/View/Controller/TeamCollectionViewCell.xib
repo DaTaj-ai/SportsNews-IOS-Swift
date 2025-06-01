@@ -46,7 +46,7 @@
                 <outlet property="TeamImage" destination="5D8-mf-rPw" id="cIi-e3-2su"/>
                 <outlet property="TeamName" destination="vwU-tm-IAX" id="FBY-AS-9u7"/>
             </connections>
-            <point key="canvasLocation" x="421" y="-59"/>
+            <point key="canvasLocation" x="419.84732824427482" y="-59.507042253521128"/>
         </collectionViewCell>
     </objects>
     <resources>
