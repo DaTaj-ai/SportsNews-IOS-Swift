@@ -1,19 +1,11 @@
-//
-//  LeaguesDetails.swift
-//  SportsNews-IOS-Swift
-//
-//  Created by Abdo Allam  on 29/05/2025.
-//
-
-import Foundation
 struct LeaguesDetails: Codable {
-    let eventKey: Int
-    let eventDate, eventTime, eventHomeTeam: String
-    let homeTeamKey: Int
-    let eventAwayTeam: String
-    let awayTeamKey: Int
-    let eventHalftimeResult, eventFinalResult, eventFtResult, eventPenaltyResult: String
-    let eventStatus, countryName, leagueName: String
+    let eventKey: Int?
+    let eventDate, eventTime, eventHomeTeam: String?
+    let homeTeamKey: Int?
+    let eventAwayTeam: String?
+    let awayTeamKey: Int?
+    let eventHalftimeResult, eventFinalResult, eventFtResult, eventPenaltyResult: String?
+    let eventStatus, countryName, leagueName: String?
     let leagueKey: Int?
     let leagueRound, leagueSeason, eventLive, eventStadium: String?
     let eventReferee: String?
@@ -23,7 +15,6 @@ struct LeaguesDetails: Codable {
     let eventHomeFormation, eventAwayFormation: String?
     let fkStageKey: Int?
     let stageName: String?
-    
 
     enum CodingKeys: String, CodingKey {
         case eventKey = "event_key"

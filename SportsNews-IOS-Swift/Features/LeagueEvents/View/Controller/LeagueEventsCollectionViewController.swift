@@ -30,8 +30,8 @@ class LeagueEventsCollectionViewController: UICollectionViewController {
     
     private func loadData() {
         guard let sportType = sportType, let leagueKey = leagueKey else { return }
-        presenter.loadFixtures(sportType: sportType, leagueKey: leagueKey)
-        presenter.loadTeams(sportType: sportType, leagueKey: leagueKey)
+        presenter.loadFixtures(sportType: sportType, leagueId: leagueKey)
+        presenter.loadTeams(sportType: sportType, leagueId: leagueKey)
     }
     
     // MARK: - Compositional Layout
@@ -113,12 +113,11 @@ class LeagueEventsCollectionViewController: UICollectionViewController {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return sectionTitles.count
     }
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0: return max(presenter.upcomingEvents.count, 1)
-        case 1: return max(presenter.latestEvents.count, 1)
-        case 2: return max(presenter.teams.count, 1)
+        case 0: return presenter.upcomingEvents.isEmpty ? 1 : presenter.upcomingEvents.count
+        case 1: return presenter.latestEvents.isEmpty ? 1 : presenter.latestEvents.count
+        case 2: return presenter.teams.isEmpty ? 1 : presenter.teams.count
         default: return 0
         }
     }
@@ -220,15 +219,21 @@ class LeagueEventsCollectionViewController: UICollectionViewController {
 // MARK: - Presenter Interface Implementation
 extension LeagueEventsCollectionViewController: LeagueDetailsView {
     func reloadUpcomingEvents() {
-        collectionView.reloadSections(IndexSet(integer: 0))
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
-    
+
     func reloadLatestEvents() {
-        collectionView.reloadSections(IndexSet(integer: 1))
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     func reloadTeams() {
-        collectionView.reloadSections(IndexSet(integer: 2))
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     func showError(message: String) {

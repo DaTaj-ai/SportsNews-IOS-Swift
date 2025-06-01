@@ -38,7 +38,7 @@ class LatestEventsCollectionViewCell: UICollectionViewCell {
             MatchDate.text = event.eventDate
             Time.text = event.eventTime
             
-            let finalResult = event.eventFinalResult.isEmpty ? "—" : event.eventFinalResult
+            let finalResult = event.eventFinalResult!.isEmpty ? "—" : event.eventFinalResult
             MatchScore.text = finalResult
             
             if let logo1 = event.homeTeamLogo, let url1 = URL(string: logo1) {

@@ -67,16 +67,17 @@ class NetworkService: NetworkSProtocol {
 
     
     static func fetchLeaguesDetails(sportType: String, leaguesKey: String, completionHandler: @escaping (Any?) -> Void) {
-        let fromDate = getDateString(offsetByYears: 0)
-        let toDate = getDateString(offsetByYears: 1)
+        let fromDate = getDateString(offsetByYears: -1)
+        let toDate = getDateString(offsetByYears: 0)
         
+           
         var components = URLComponents(string: "\(baseURL)\(sportType)/")!
         components.queryItems = [
             URLQueryItem(name: "APIkey", value: apiKey),
             URLQueryItem(name: "met", value: "Fixtures"),
             URLQueryItem(name: "from", value: fromDate),
             URLQueryItem(name: "to", value: toDate),
-            URLQueryItem(name: "leaguesKey", value: leaguesKey)
+            URLQueryItem(name: "leagueId", value: leaguesKey)
         ]
         
         guard let url = components.url else {
@@ -216,12 +217,21 @@ class NetworkService: NetworkSProtocol {
                 var teamsSet = Set<Team>()
                 
                 for fixture in fixtures {
-                    let homeTeam = Team(teamKey: fixture.homeTeamKey, teamName: fixture.eventHomeTeam, teamLogo: fixture.homeTeamLogo)
-                    let awayTeam = Team(teamKey: fixture.awayTeamKey, teamName: fixture.eventAwayTeam, teamLogo: fixture.awayTeamLogo)
-                    
+                    guard let homeKey = fixture.homeTeamKey,
+                          let awayKey = fixture.awayTeamKey,
+                          let homeName = fixture.eventHomeTeam,
+                          let awayName = fixture.eventAwayTeam else {
+                        // تخطي هذه المباراة لأن هناك قيم مفقودة
+                        continue
+                    }
+
+                    let homeTeam = Team(teamKey: homeKey, teamName: homeName, teamLogo: fixture.homeTeamLogo)
+                    let awayTeam = Team(teamKey: awayKey, teamName: awayName, teamLogo: fixture.awayTeamLogo)
+
                     teamsSet.insert(homeTeam)
                     teamsSet.insert(awayTeam)
                 }
+
                 
                 let teams = Array(teamsSet)
                 print("✅ Extracted \(teams.count) unique teams from fixtures")

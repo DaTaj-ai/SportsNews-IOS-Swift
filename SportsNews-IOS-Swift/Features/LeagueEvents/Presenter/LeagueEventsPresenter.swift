@@ -9,15 +9,19 @@ class LeagueDetailsPresenter {
     var teams: [Team] = []
     
     // MARK: - Data Loading
-    func loadFixtures(sportType: String, leagueKey: String) {
+    func loadFixtures(sportType: String, leagueId: String) {
         NetworkService.fetchLeaguesDetails(
             sportType: sportType,
-            leaguesKey: leagueKey
+            leaguesKey: leagueId
         ) { [weak self] (response: Any?) in
             guard let self = self else { return }
             
             if let footballResponse = response as? LeaguesDetailsResponse,
                let fixtures = footballResponse.result {
+                
+                // هنا تضيف طباعة بيانات fixtures
+                print("Fixtures count: \(fixtures.count)")
+                fixtures.forEach { print($0.eventDate ?? "No date") }
                 
                 let (upcoming, latest) = self.processFixtures(fixtures)
                 self.upcomingEvents = upcoming
@@ -34,11 +38,12 @@ class LeagueDetailsPresenter {
             }
         }
     }
+
     
-    func loadTeams(sportType: String, leagueKey: String) {
+    func loadTeams(sportType: String, leagueId: String) {
         NetworkService.fetchTeamsOfLeague(
             sportType: sportType,
-            leagueKey: leagueKey
+            leagueKey: leagueId
         ) { [weak self] teams in
             guard let self = self else { return }
             
@@ -66,9 +71,11 @@ class LeagueDetailsPresenter {
         
         for fixture in fixtures {
             let dateString = fixture.eventDate
-            guard let fixtureDate = formatter.date(from: dateString) else {
+            guard let dateString = fixture.eventDate,
+                  let fixtureDate = formatter.date(from: dateString) else {
                 continue
             }
+
 
             if fixtureDate > currentDate {
                 upcoming.append(fixture)
