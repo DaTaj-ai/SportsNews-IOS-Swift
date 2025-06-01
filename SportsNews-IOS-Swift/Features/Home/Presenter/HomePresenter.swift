@@ -8,7 +8,7 @@
 import Foundation
 
 class HomePresenter{
-    var tablelViewController: HomeViewControllerProtocol
+    var HomeViewController: HomeViewControllerProtocol
     let sportsList: [SportsCategory] = [
         SportsCategory(
             strSport: "https://i.pinimg.com/736x/28/ca/2f/28ca2f5993eca9f8d3a0f8dac92eb177.jpg", 
@@ -33,12 +33,12 @@ class HomePresenter{
     ]
     
     init(vc:HomeViewControllerProtocol){
-        self.tablelViewController = vc
+        self.HomeViewController = vc
     }
     
     
     func getDataFromService(){
-            self.tablelViewController.renderTableView(res:	sportsList )
+            self.HomeViewController.renderTableView(res:	sportsList )
     }
     
 //    func didSelectLeague(at index: Int) {

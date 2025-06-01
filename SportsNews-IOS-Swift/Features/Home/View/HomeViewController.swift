@@ -115,9 +115,8 @@ extension HomeViewController : UICollectionViewDelegateFlowLayout{
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Tabed")
-        guard let mySVC:LeaguesTableViewController = self.storyboard?.instantiateViewController(identifier: "Leagues") else {
-            print("no view here ")
-            return  }
+        let storyboard = UIStoryboard(name: "LeaguesTableView", bundle: nil)
+        let mySVC = storyboard.instantiateViewController(withIdentifier: "LeaguesScreen") as! LeaguesTableViewController
     
         mySVC.presenter = LeaguesTablePresenter(vc: mySVC, endPoint:sportsList[indexPath.row].endPoint )
         self.navigationController?.pushViewController(mySVC, animated: true)
