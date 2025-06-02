@@ -108,6 +108,21 @@ class LeagueEventsCollectionViewController: UICollectionViewController {
         
         return section
     }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 2 {  
+            let storyboard = UIStoryboard(name: "ClubDetailsViewStoryBoard", bundle: nil)
+
+                guard let leagueVC = storyboard.instantiateViewController(withIdentifier: "TeamDetailsViewController") as? TeamDetailsViewController else {
+                    fatalError("LeagueEventsCollectionViewController not found in storyboard.")
+                }
+            leagueVC.teamId = presenter.teams[indexPath.row].teamKey
+            leagueVC.sport = self.sportType
+           self.navigationController?.pushViewController(leagueVC, animated: true)
+           
+
+    }
+        }
+        
     
     // MARK: - Data Source
     override func numberOfSections(in collectionView: UICollectionView) -> Int {

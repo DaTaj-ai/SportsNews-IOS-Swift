@@ -60,6 +60,8 @@ class LeagueDetailsPresenter {
         }
     }
     
+    
+    
     // MARK: - Helper Methods
     private func processFixtures(_ fixtures: [LeaguesDetails]) -> (upcoming: [LeaguesDetails], latest: [LeaguesDetails]) {
         let formatter = DateFormatter()

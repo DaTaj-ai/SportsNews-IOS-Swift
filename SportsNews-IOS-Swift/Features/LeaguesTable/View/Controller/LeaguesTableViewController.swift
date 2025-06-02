@@ -86,8 +86,17 @@ class LeaguesTableViewController: UITableViewController ,LeaguesTableViewControl
                     fatalError("LeagueEventsCollectionViewController not found in storyboard.")
                 }
                 
-                leagueVC.leagueKey = "205"
-                leagueVC.sportType = "football"
+        if let leagueKey = presenter.leaguesResponse?.result[indexPath.row].leagueKey {
+            leagueVC.leagueKey = String(leagueKey)
+            print("yes")
+                }
+        else{
+            leagueVC.leagueKey = "210"
+
+        }
+
+        
+               leagueVC.sportType = presenter.endPoint
 
                       
            self.navigationController?.pushViewController(leagueVC, animated: true)
