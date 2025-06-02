@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="pOk-aF-1aX" customClass="UpComingEvensCollectionViewCell" customModule="Sportify" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="185"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="350" height="185"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pIO-4K-JFX">
+                        <rect key="frame" x="-3" y="-5" width="350" height="185"/>
+                        <color key="backgroundColor" name="CardBG"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="football" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5xS-jp-yYP">
+                        <rect key="frame" x="250" y="15" width="85" height="85"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="85" id="VUd-b6-AlU"/>
+                            <constraint firstAttribute="height" constant="85" id="xyr-v6-q4m"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cricket" translatesAutoresizingMaskIntoConstraints="NO" id="R9S-In-oGU">
+                        <rect key="frame" x="15" y="15" width="85" height="85"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="85" id="Bnp-iO-ltZ"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="85" id="TpJ-mR-gyT"/>
+                            <constraint firstAttribute="height" constant="85" id="uDM-w4-ZID"/>
+                            <constraint firstAttribute="width" constant="85" id="vUr-Uv-804"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loI-Hc-bTS">
+                        <rect key="frame" x="150.33333333333334" y="40" width="49.666666666666657" height="36"/>
+                        <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="36"/>
+                        <color key="textColor" name="PrimaryColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQ5-xJ-vKt">
+                        <rect key="frame" x="236.66666666666666" y="116" width="97.333333333333343" height="16"/>
+                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="16"/>
+                        <color key="textColor" name="TextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvt-Ta-GVz">
+                        <rect key="frame" x="147" y="130" width="56.333333333333343" height="18"/>
+                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="18"/>
+                        <color key="textColor" name="TextSecondary"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10-09-2025" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeA-cf-3xf">
+                        <rect key="frame" x="129.33333333333334" y="106" width="91.333333333333343" height="14"/>
+                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
+                        <color key="textColor" name="TextSecondary"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Team1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ep0-ce-qlz">
+                        <rect key="frame" x="15.999999999999993" y="116" width="97.333333333333314" height="16"/>
+                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="16"/>
+                        <color key="textColor" name="TextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="p6x-0n-WSm"/>
+            <constraints>
+                <constraint firstItem="FeA-cf-3xf" firstAttribute="leading" secondItem="ep0-ce-qlz" secondAttribute="trailing" constant="16" id="7OC-Xx-Gwj"/>
+                <constraint firstAttribute="trailing" secondItem="pIO-4K-JFX" secondAttribute="trailing" id="FoG-k2-PAO"/>
+                <constraint firstItem="R9S-In-oGU" firstAttribute="top" secondItem="pOk-aF-1aX" secondAttribute="top" constant="15" id="GCE-uG-lEd"/>
+                <constraint firstItem="loI-Hc-bTS" firstAttribute="centerX" secondItem="pOk-aF-1aX" secondAttribute="centerX" id="Hbi-j4-mJH"/>
+                <constraint firstItem="pIO-4K-JFX" firstAttribute="top" secondItem="pOk-aF-1aX" secondAttribute="top" id="Mr1-R1-KjS"/>
+                <constraint firstItem="kvt-Ta-GVz" firstAttribute="centerX" secondItem="pOk-aF-1aX" secondAttribute="centerX" id="SPi-Wt-WsX"/>
+                <constraint firstItem="kvt-Ta-GVz" firstAttribute="top" secondItem="FeA-cf-3xf" secondAttribute="bottom" constant="10" id="Scf-PX-vtC"/>
+                <constraint firstItem="ep0-ce-qlz" firstAttribute="leading" secondItem="pOk-aF-1aX" secondAttribute="leading" constant="16" id="Sjc-Y8-6rN"/>
+                <constraint firstAttribute="trailing" secondItem="oQ5-xJ-vKt" secondAttribute="trailing" constant="16" id="Vtc-iL-nke"/>
+                <constraint firstItem="oQ5-xJ-vKt" firstAttribute="top" secondItem="5xS-jp-yYP" secondAttribute="bottom" constant="16" id="XRn-a6-JUU"/>
+                <constraint firstItem="FeA-cf-3xf" firstAttribute="centerX" secondItem="pOk-aF-1aX" secondAttribute="centerX" id="a3s-AD-KdY"/>
+                <constraint firstAttribute="trailing" secondItem="5xS-jp-yYP" secondAttribute="trailing" constant="15" id="aVq-47-W3u"/>
+                <constraint firstItem="ep0-ce-qlz" firstAttribute="top" secondItem="R9S-In-oGU" secondAttribute="bottom" constant="16" id="azQ-KG-s6n"/>
+                <constraint firstItem="FeA-cf-3xf" firstAttribute="top" secondItem="loI-Hc-bTS" secondAttribute="bottom" constant="30" id="jw3-L9-Iro"/>
+                <constraint firstItem="R9S-In-oGU" firstAttribute="leading" secondItem="pOk-aF-1aX" secondAttribute="leading" constant="15" id="lQH-jD-VDE"/>
+                <constraint firstItem="5xS-jp-yYP" firstAttribute="top" secondItem="pOk-aF-1aX" secondAttribute="top" constant="15" id="m9M-gI-ZTF"/>
+                <constraint firstAttribute="bottom" secondItem="pIO-4K-JFX" secondAttribute="bottom" id="sQa-BK-i2d"/>
+                <constraint firstItem="pIO-4K-JFX" firstAttribute="leading" secondItem="pOk-aF-1aX" secondAttribute="leading" id="ubx-bM-jBo"/>
+                <constraint firstItem="5xS-jp-yYP" firstAttribute="leading" secondItem="R9S-In-oGU" secondAttribute="trailing" constant="150" id="ukf-3h-3KN"/>
+                <constraint firstItem="loI-Hc-bTS" firstAttribute="top" secondItem="pOk-aF-1aX" secondAttribute="top" constant="40" id="vx4-4X-exu"/>
+                <constraint firstItem="oQ5-xJ-vKt" firstAttribute="leading" secondItem="FeA-cf-3xf" secondAttribute="trailing" constant="16" id="yI9-Hv-9WF"/>
+            </constraints>
+            <size key="customSize" width="185" height="127"/>
+            <connections>
+                <outlet property="backGround" destination="pIO-4K-JFX" id="NcK-Ec-YDI"/>
+                <outlet property="logoTeam1" destination="R9S-In-oGU" id="8Tw-gx-w19"/>
+                <outlet property="logoTeam2" destination="5xS-jp-yYP" id="A0z-L7-4Eq"/>
+                <outlet property="matchDate" destination="FeA-cf-3xf" id="oLl-9N-cg4"/>
+                <outlet property="matchTime" destination="kvt-Ta-GVz" id="scc-c8-c9X"/>
+                <outlet property="nameTeam1" destination="ep0-ce-qlz" id="uad-Yh-U3O"/>
+                <outlet property="nameTeam2" destination="oQ5-xJ-vKt" id="fvP-s2-UIL"/>
+            </connections>
+            <point key="canvasLocation" x="184.73282442748092" y="52.464788732394368"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="cricket" width="2000" height="2000"/>
+        <image name="football" catalog="system" width="128" height="123"/>
+        <namedColor name="CardBG">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryColor">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextSecondary">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
