@@ -68,7 +68,7 @@ class NetworkService: NetworkSProtocol {
     
     static func fetchLeaguesDetails(sportType: String, leaguesKey: String, completionHandler: @escaping (Any?) -> Void) {
         let fromDate = getDateString(offsetByYears: -1)
-        let toDate = getDateString(offsetByYears: 0)
+        let toDate = getDateString(offsetByYears: 1)
         
            
         var components = URLComponents(string: "\(baseURL)\(sportType)/")!
@@ -180,7 +180,7 @@ class NetworkService: NetworkSProtocol {
             URLQueryItem(name: "met", value: "Fixtures"),
             URLQueryItem(name: "from", value: fromDate),
             URLQueryItem(name: "to", value: toDate),
-            URLQueryItem(name: "leagueId", value: leagueKey) 
+            URLQueryItem(name: "leagueId", value: leagueKey)
         ]
         
         guard let url = components.url else {

@@ -78,16 +78,19 @@ class LeaguesTableViewController: UITableViewController ,LeaguesTableViewControl
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Tabed")
         
-        let storyboard = UIStoryboard(name: "LeagueEventsView", bundle: nil)
            
-           
-           guard let leaguesVC = storyboard.instantiateViewController(withIdentifier: "eventsdetailsid") as? LeagueEventsCollectionViewController else {
-               print("ViewController with identifier 'Leagues' not found")
-               return
-           }
-           
-           
-           self.navigationController?.pushViewController(leaguesVC, animated: true)
+    
+            let storyboard = UIStoryboard(name: "LeagueEventsView", bundle: nil)
+
+                guard let leagueVC = storyboard.instantiateViewController(withIdentifier: "LeagueEventsCollectionViewController") as? LeagueEventsCollectionViewController else {
+                    fatalError("LeagueEventsCollectionViewController not found in storyboard.")
+                }
+                
+                leagueVC.leagueKey = "205"
+                leagueVC.sportType = "football"
+
+                      
+           self.navigationController?.pushViewController(leagueVC, animated: true)
            
 
     }
