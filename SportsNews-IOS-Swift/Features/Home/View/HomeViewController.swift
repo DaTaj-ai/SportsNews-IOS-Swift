@@ -35,6 +35,11 @@ class HomeViewController: UICollectionViewController , HomeViewControllerProtoco
         presenter.getDataFromService()
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+            return UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
+        }
+
 
     /*
     // MARK: - Navigation
@@ -109,7 +114,7 @@ extension HomeViewController : UICollectionViewDelegateFlowLayout{
 //    }
 //
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let size = UIScreen.main.bounds.width * 0.47
+            let size = UIScreen.main.bounds.width * 0.45
         return CGSize(width: size, height: 320)
     }
     

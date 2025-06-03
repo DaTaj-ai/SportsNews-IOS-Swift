@@ -12,78 +12,85 @@ protocol FavoritesViewControllerProtocal {
     // navigation
 }
 
-class FavoritesViewController: UITableViewController , FavoritesViewControllerProtocal {
-
-    var presenter:FavoritePresenter?
+class FavoritesViewController: UITableViewController, FavoritesViewControllerProtocal {
+    
+    var presenter: FavoritePresenter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        setupTableView()
         presenter = FavoritePresenter(vc: self)
         presenter?.addFavoritesLeague()
         presenter?.getFavoritesLeague()
+    }
+    
+    private func setupTableView() {
+        self.title = "Favorites"
         
-        let nib = UINib(nibName:"LeagueTableCell", bundle: nil)
+        // Register cell
+        let nib = UINib(nibName: "LeagueTableCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "favoritecell")
         
+        // TableView appearance
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .systemGroupedBackground
         tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
         
+        // Configure header
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 60))
+        let headerLabel = UILabel()
+        headerLabel.text = "Your Favorite Leagues"
+        headerLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        headerLabel.textColor = .label
+        headerLabel.textAlignment = .left
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        headerView.addSubview(headerLabel)
+        
+        NSLayoutConstraint.activate([
+            headerLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
+            headerLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16),
+            headerLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)
+        ])
+        
+        tableView.tableHeaderView = headerView
     }
-
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
-
-    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
-
+    
+    // MARK: - Table view data source
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return presenter?.favoritesLeagueList.count ?? 10
-        
+        return presenter?.favoritesLeagueList.count ?? 0
     }
-
-    func renderData() {
-        tableView.reloadData()
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80 // Slightly taller for better appearance
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "favoritecell", for: indexPath)as! LeagueTableCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "favoritecell", for: indexPath) as! LeagueTableCell
         
-        cell.leagueName?.text = presenter?.favoritesLeagueList[indexPath.row].leagueName
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        cell.configure(with: presenter?.favoritesLeagueList[indexPath.row].leagueName ?? "", image: presenter?.favoritesLeagueList[indexPath.row].leagueImageUrl ?? "")
         
-        let url = URL(string: presenter?.favoritesLeagueList[indexPath.row].leagueImageUrl ?? "")
-        cell.LeagueImage?.kf.setImage(with:url )
         
-        cell.contentView.backgroundColor = .secondarySystemBackground
-               return cell
-           }
-           
-    
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Tabed")
-        
-        let storyboard = UIStoryboard(name: "LeaguesTableView", bundle: nil)
-           
-           
-           guard let favoritesVC = storyboard.instantiateViewController(withIdentifier: "favoritecell") as? LeagueEventsCollectionViewController else {
-               print("ViewController with identifier 'Leagues' not found")
-               return
-           }
-           
-           
-           self.navigationController?.pushViewController(favoritesVC, animated: true)
-           
-
+        return cell
     }
     
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let storyboard = UIStoryboard(name: "LeaguesTableView", bundle: nil)
+        guard let eventsVC = storyboard.instantiateViewController(withIdentifier: "Leagues") as? LeagueEventsCollectionViewController else {
+            print("ViewController with identifier 'Leagues' not found")
+            return
+        }
+        
+        self.navigationController?.pushViewController(eventsVC, animated: true)
+    }
+    
+    func renderData() {
+        tableView.reloadData()
+    }
 }
