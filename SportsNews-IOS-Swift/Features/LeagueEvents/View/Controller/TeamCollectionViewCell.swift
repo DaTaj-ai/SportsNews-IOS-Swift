@@ -15,9 +15,9 @@ class TeamCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
            super.awakeFromNib()
-           TeamImage.layer.cornerRadius = TeamImage.frame.height / 2
-           TeamImage.clipsToBounds = true
-           TeamImage.contentMode = .scaleAspectFill
+           //TeamImage.layer.cornerRadius = TeamImage.frame.height / 2
+           //TeamImage.clipsToBounds = true
+           //TeamImage.contentMode = .scaleAspectFill
        }
 
        func configure(with team: Team) {

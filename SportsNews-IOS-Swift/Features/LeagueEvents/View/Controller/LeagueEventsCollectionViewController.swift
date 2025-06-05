@@ -103,7 +103,7 @@ class LeagueEventsCollectionViewController: UICollectionViewController {
     private func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { sectionIndex, _ in
             switch sectionIndex {
-            case 0: return self.createHorizontalSection(height: 180)
+            case 0: return self.createHorizontalSection(height: 155)
             case 1: return self.createVerticalSection(height: 120)
             case 2: return self.createHorizontalSection(height: 150)
             default: return self.createHorizontalSection(height: 180)
