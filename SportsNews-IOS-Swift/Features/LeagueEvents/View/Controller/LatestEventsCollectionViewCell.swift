@@ -20,8 +20,8 @@ class LatestEventsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
             super.awakeFromNib()
-            styleImageView(LogoTeam1)
-            styleImageView(LogoTeam2)
+           // styleImageView(LogoTeam1)
+           // styleImageView(LogoTeam2)
         }
         
         private func styleImageView(_ imageView: UIImageView) {
