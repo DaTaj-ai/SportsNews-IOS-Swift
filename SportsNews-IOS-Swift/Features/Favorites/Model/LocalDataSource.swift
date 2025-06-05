@@ -15,36 +15,38 @@ class LocalDataSouce {
     
     
     static func addToFavorites(favoriteLeague: FavoriteLeague) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let context = appDelegate.persistentContainer.viewContext
-        
-        
-            guard let entity = NSEntityDescription.entity(forEntityName: "FavorteLeagues", in: context) else {
-                print("Entity not found")
+        DispatchQueue.main.async {
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                 return
             }
             
-            let managedObject = NSManagedObject(entity: entity, insertInto: context)
-            managedObject.setValue(favoriteLeague.leagueName, forKey: "leagueName")
-            managedObject.setValue(favoriteLeague.endPoint, forKey: "endPoint")
-            managedObject.setValue(favoriteLeague.leagueImageUrl, forKey: "leagueImageUrl")
-
+            let context = appDelegate.persistentContainer.viewContext
             
-        do {
-            try context.save()
-            print("Successfully saved \(favoriteLeague) ")
-        } catch {
-            print("Error saving context: \(error.localizedDescription)")
+            
+                guard let entity = NSEntityDescription.entity(forEntityName: "FavorteLeaguesV1", in: context) else {
+                    print("Entity not found")
+                    return
+                }
+                
+                let managedObject = NSManagedObject(entity: entity, insertInto: context)
+                managedObject.setValue(favoriteLeague.leagueName, forKey: "leagueName")
+                managedObject.setValue(favoriteLeague.endPoint, forKey: "endPoint")
+                managedObject.setValue(favoriteLeague.leagueImageUrl, forKey: "leagueImageUrl")
+
+                
+            do {
+                try context.save()
+                print("Successfully saved \(favoriteLeague) ")
+            } catch {
+                print("Error saving context: \(error.localizedDescription)")
+            }
         }
     }
 
 static func getFavoriteLeague() -> [FavoriteLeague] {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavorteLeagues")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavorteLeaguesV1")
         var favoriteLeagues:[FavoriteLeague] = []
         do {
             let localNews = try context.fetch(fetchRequest)
@@ -65,29 +67,51 @@ static func getFavoriteLeague() -> [FavoriteLeague] {
     }
     
     static func deleteFromFavorites(leagueName: String) {
+        DispatchQueue.main.async {
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+            }
+            
+            let context = appDelegate.persistentContainer.viewContext
+            
+            // Create a fetch request to find the league to delete
+            let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "FavorteLeaguesV1")
+            fetchRequest.predicate = NSPredicate(format: "leagueName == %@", leagueName)
+            
+            do {
+                let results = try context.fetch(fetchRequest)
+                
+                // If we found the league, delete it
+                if let leagueToDelete = results.first as? NSManagedObject {
+                    context.delete(leagueToDelete)
+                    
+                    // Save the context
+                    try context.save()
+                    print("Successfully deleted league with name: \(leagueName)")
+                }
+            } catch {
+                print("Error deleting league: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    static func isLeagueFavorited(leagueName: String) -> Bool {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
+            return false
         }
         
         let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "FavorteLeaguesV1")
         
-        // Create a fetch request to find the league to delete
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "FavorteLeagues")
-        fetchRequest.predicate = NSPredicate(format: "leagueName == %@", leagueName)
+        fetchRequest.predicate = NSPredicate(format: "leagueName ==[c] %@", leagueName)
         
         do {
             let results = try context.fetch(fetchRequest)
-            
-            // If we found the league, delete it
-            if let leagueToDelete = results.first as? NSManagedObject {
-                context.delete(leagueToDelete)
-                
-                // Save the context
-                try context.save()
-                print("Successfully deleted league with name: \(leagueName)")
-            }
+            print("True True True----------->>>>>>\(!results.isEmpty) ")
+            return !results.isEmpty
         } catch {
-            print("Error deleting league: \(error.localizedDescription)")
+            print("Error checking favorite status: \(error.localizedDescription)")
+            return false
         }
     }
 

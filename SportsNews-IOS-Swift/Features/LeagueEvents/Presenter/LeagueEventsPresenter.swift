@@ -7,6 +7,7 @@ class LeagueDetailsPresenter {
     var upcomingEvents: [LeaguesDetails] = []
     var latestEvents: [LeaguesDetails] = []
     var teams: [Team] = []
+    var favorite:FavoriteLeague?
     
     // MARK: - Data Loading
     func loadFixtures(sportType: String, leagueId: String) {
@@ -102,6 +103,28 @@ class LeagueDetailsPresenter {
         }
         
         return (upcoming, latest)
+    }
+   	 
+    // LeagueDetailsPresenter.swift
+    func addLeagueToFavorites() {
+        guard let league = favorite else { return }
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            LocalDataSouce.addToFavorites(favoriteLeague: league)
+        }
+    }
+
+    func removeLeagueFromFavorites() {
+        guard let leagueName = favorite?.leagueName else { return }
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            LocalDataSouce.deleteFromFavorites(leagueName: leagueName)
+        }
+    }
+
+    func isLeagueFavorited() -> Bool {
+        guard let leagueName = favorite?.leagueName else { return false }
+        return LocalDataSouce.isLeagueFavorited(leagueName: leagueName)
     }
 }
 

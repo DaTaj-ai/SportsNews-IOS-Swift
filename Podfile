@@ -5,6 +5,7 @@ target 'SportsNews-IOS-Swift' do
 	pod 'Kingfisher', '~> 8.0'
 	pod 'ReachabilitySwift', '~> 5.2'
 	pod 'Alamofire', '5.6.4'
+	pod 'lottie-ios', '~> 4.2.0'
 
 
   # Pods for SportsNews-IOS-Swift

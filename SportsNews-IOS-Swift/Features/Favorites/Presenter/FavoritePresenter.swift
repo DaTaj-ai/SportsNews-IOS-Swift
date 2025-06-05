@@ -19,9 +19,9 @@ class FavoritePresenter{
         self.favoritesLeagueList = LocalDataSouce.getFavoriteLeague()
         vc.renderData()
     }
-    func addFavoritesLeague(){
-        LocalDataSouce.addToFavorites(favoriteLeague: FavoriteLeague(leagueName: "this is the name", leagueImageUrl: "how are you ", endPoint: "okay") )
-        vc.renderData()
+    func deleteFavoritesLeague(leagueName: String){
+        favoritesLeagueList.removeAll { $0.leagueName == leagueName }
+        LocalDataSouce.deleteFromFavorites(leagueName: leagueName)
     }
     
 }
