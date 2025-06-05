@@ -12,10 +12,10 @@ class NoDataCollectionViewCell: UICollectionViewCell {
 
     private let messageLabel: UILabel = {
         let label = UILabel()
-        label.text = "No Data..."
+        label.text = "Sorry,There is no mathces "
         label.textAlignment = .center
         label.textColor = .gray
-        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
