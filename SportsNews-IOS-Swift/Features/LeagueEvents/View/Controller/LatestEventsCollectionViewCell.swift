@@ -11,7 +11,6 @@ class LatestEventsCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var MatchScore: UILabel!
     @IBOutlet weak var Time: UILabel!
-    @IBOutlet weak var MatchDate: UILabel!
     @IBOutlet weak var NameTeam2: UILabel!
     @IBOutlet weak var NameTeam1: UILabel!
     @IBOutlet weak var LogoTeam2: UIImageView!
@@ -20,6 +19,9 @@ class LatestEventsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
             super.awakeFromNib()
+        self.contentView.layer.cornerRadius=16
+        self.layer.cornerRadius=16
+        
            // styleImageView(LogoTeam1)
            // styleImageView(LogoTeam2)
         }
@@ -31,12 +33,11 @@ class LatestEventsCollectionViewCell: UICollectionViewCell {
             imageView.layer.borderColor = UIColor(named: "SecondaryColor")?.cgColor ?? UIColor.lightGray.cgColor
             imageView.contentMode = .scaleAspectFill
         }
-
+        
         func configure(with event: LeaguesDetails) {
             NameTeam1.text = event.eventHomeTeam
             NameTeam2.text = event.eventAwayTeam
-            MatchDate.text = event.eventDate
-            Time.text = event.eventTime
+            Time.text = event.eventDate
             
             let finalResult = event.eventFinalResult!.isEmpty ? "—" : event.eventFinalResult
             MatchScore.text = finalResult

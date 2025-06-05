@@ -119,7 +119,7 @@ class LeagueEventsCollectionViewController: UICollectionViewController {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .absolute(180),
+            widthDimension: .fractionalWidth(0.75),
             heightDimension: .absolute(height))
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
@@ -151,7 +151,7 @@ class LeagueEventsCollectionViewController: UICollectionViewController {
         
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(160))
+            heightDimension: .absolute(150))
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
             subitem: item,

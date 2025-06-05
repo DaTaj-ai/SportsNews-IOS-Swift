@@ -50,12 +50,6 @@
                         <color key="textColor" name="AccentColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10-09-2025" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4G-hm-Yfq">
-                        <rect key="frame" x="135.33333333333334" y="122.33333333333331" width="79.333333333333343" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" name="AccentColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 - 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scW-0i-4bW">
                         <rect key="frame" x="155.66666666666666" y="68.333333333333329" width="39" height="21.666666666666671"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
@@ -75,7 +69,6 @@
             <constraints>
                 <constraint firstItem="Owy-eJ-8r0" firstAttribute="centerY" secondItem="wey-9v-USk" secondAttribute="centerY" id="9tV-IP-4uz"/>
                 <constraint firstItem="wey-9v-USk" firstAttribute="leading" secondItem="ac1-Ky-g6q" secondAttribute="leading" constant="16" id="DFt-cB-v12"/>
-                <constraint firstItem="kUu-Ek-ZfI" firstAttribute="top" secondItem="x4G-hm-Yfq" secondAttribute="bottom" constant="8" id="Da2-q5-SR1"/>
                 <constraint firstItem="scW-0i-4bW" firstAttribute="centerX" secondItem="5Is-I0-DE5" secondAttribute="centerX" id="ESl-PS-bdI"/>
                 <constraint firstAttribute="bottom" secondItem="kUu-Ek-ZfI" secondAttribute="bottom" constant="16" id="Fu9-QZ-aeg"/>
                 <constraint firstAttribute="trailing" secondItem="Owy-eJ-8r0" secondAttribute="trailing" constant="8" id="JQ9-D8-WbB"/>
@@ -84,7 +77,6 @@
                 <constraint firstItem="kUu-Ek-ZfI" firstAttribute="centerX" secondItem="8Qj-6M-gIa" secondAttribute="centerX" id="NEi-ZL-KC6"/>
                 <constraint firstItem="scW-0i-4bW" firstAttribute="top" secondItem="5Is-I0-DE5" secondAttribute="bottom" constant="9.9999999999999858" id="PJl-em-nwi"/>
                 <constraint firstItem="kUu-Ek-ZfI" firstAttribute="top" secondItem="wey-9v-USk" secondAttribute="bottom" constant="-7.6666666666666572" id="RFB-VW-EKS"/>
-                <constraint firstItem="x4G-hm-Yfq" firstAttribute="centerX" secondItem="kUu-Ek-ZfI" secondAttribute="centerX" id="es0-5Y-Q6E"/>
                 <constraint firstItem="Lzr-hs-0Cb" firstAttribute="centerY" secondItem="unb-1F-n3o" secondAttribute="centerY" id="f79-lZ-biw"/>
                 <constraint firstItem="Lzr-hs-0Cb" firstAttribute="centerX" secondItem="Owy-eJ-8r0" secondAttribute="centerX" id="o0w-Dq-Yh9"/>
                 <constraint firstItem="unb-1F-n3o" firstAttribute="centerX" secondItem="wey-9v-USk" secondAttribute="centerX" id="oxJ-mL-PND"/>
@@ -96,7 +88,6 @@
             <connections>
                 <outlet property="LogoTeam1" destination="unb-1F-n3o" id="yFS-TD-1nd"/>
                 <outlet property="LogoTeam2" destination="Lzr-hs-0Cb" id="sLs-KT-gME"/>
-                <outlet property="MatchDate" destination="x4G-hm-Yfq" id="Qii-9c-5nX"/>
                 <outlet property="MatchScore" destination="scW-0i-4bW" id="DZI-g5-Ob2"/>
                 <outlet property="NameTeam1" destination="wey-9v-USk" id="8tb-dt-yoG"/>
                 <outlet property="NameTeam2" destination="Owy-eJ-8r0" id="0L7-mo-iQp"/>

@@ -20,8 +20,8 @@ class UpComingEvensCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupBackgroundCorners()
-        styleImageView(logoTeam1)
-        styleImageView(logoTeam2)
+       // styleImageView(logoTeam1)
+        //styleImageView(logoTeam2)
     }
     
     private func styleImageView(_ imageView: UIImageView) {
