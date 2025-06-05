@@ -88,7 +88,7 @@ class TeamDetailsViewController: UIViewController, UITableViewDataSource, UITabl
                 cell.playerRating.text = ""
             } else {
                 cell.playerName.text = "No coaches available"
-                cell.playerImage.image = UIImage(named: "avatar.jpg")
+                cell.playerImage.image = UIImage(named: "placeholder.jpg")
                 cell.playerNumber.text = ""
                 cell.playerPosition.text = ""
                 cell.playerRating.text = ""
