@@ -110,7 +110,7 @@ class FavoritesViewController: UITableViewController, FavoritesViewControllerPro
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     
@@ -215,11 +215,9 @@ class FavoritesViewController: UITableViewController, FavoritesViewControllerPro
                     }
                     if let leagueKey = self.presenter?.favoritesLeagueList[indexPath.row].leagueKey{
                         leagueVC.leagueKey = leagueKey
-                        print("yes")
                     }
                     else{
                         leagueVC.leagueKey = "210"
-                        print("nooooooooooo")
 
                     }
                     leagueVC.sportType = self.presenter?.favoritesLeagueList[indexPath.row].endPoint

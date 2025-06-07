@@ -21,11 +21,9 @@ class LeagueTableCell: UITableViewCell {
     func configure(with title: String, image: String) {
         leagueName.text = title
         
-        // Use system image as placeholder if URL is invalid
-        let placeholder = UIImage(systemName: "photo.circle.fill")?
-            .withTintColor(.systemGray3, renderingMode: .alwaysOriginal)
+        let placeholder = UIImage(named: "cup")
         
-        guard let url = URL(string: image) else {
+        guard let url = URL(string: image), !image.isEmpty else {
             LeagueImage.image = placeholder
             return
         }
@@ -36,6 +34,7 @@ class LeagueTableCell: UITableViewCell {
             options: [.transition(.fade(0.3))]
         )
     }
+
     
     private func setupCellAppearance() {
         // Cell container styling

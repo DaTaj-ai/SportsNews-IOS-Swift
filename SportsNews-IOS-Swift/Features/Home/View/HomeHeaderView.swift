@@ -13,9 +13,10 @@ class HomeHeaderView: UICollectionReusableView {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        label.textColor = .label
+        label.textColor = UIColor(named: "card") 
         return label
     }()
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)

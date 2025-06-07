@@ -10,7 +10,7 @@ import Kingfisher
 private let reuseIdentifier = "Cell"
 
 class HomeViewController: UICollectionViewController , HomeViewControllerProtocol {
-    private let headerTitle = "Sports Categories"
+    private let headerTitle = "Sports"
 
     var sportsList: [SportsCategory] = []
     

@@ -15,7 +15,6 @@ class LeagueEventsCollectionViewController: UICollectionViewController {
              updateHeartButton()
          }
      }
-    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPresenter()
@@ -48,6 +47,10 @@ class LeagueEventsCollectionViewController: UICollectionViewController {
         } else {
             presenter.removeLeagueFromFavorites()
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     private func loadFavoriteStatus() {
