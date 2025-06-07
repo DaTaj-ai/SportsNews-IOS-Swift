@@ -20,6 +20,9 @@ class UpComingEvensCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupBackgroundCorners()
+        self.contentView.layer.cornerRadius=16
+        self.layer.cornerRadius=16
+        
        // styleImageView(logoTeam1)
         //styleImageView(logoTeam2)
     }

@@ -20,7 +20,7 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pIO-4K-JFX">
                         <rect key="frame" x="0.0" y="0.0" width="350" height="185"/>
-                        <color key="backgroundColor" name="CardBG"/>
+                        <color key="backgroundColor" name="cardcolor"/>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="football" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5xS-jp-yYP">
                         <rect key="frame" x="242.33333333333337" y="8" width="64" height="64"/>
@@ -45,30 +45,31 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQ5-xJ-vKt">
                         <rect key="frame" x="206.66666666666663" y="80" width="135.33333333333337" height="86"/>
                         <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="16"/>
-                        <color key="textColor" name="AccentColor"/>
+                        <color key="textColor" name="PrimaryColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvt-Ta-GVz">
                         <rect key="frame" x="151.66666666666666" y="84" width="47" height="15"/>
                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="15"/>
-                        <color key="textColor" name="AccentColor"/>
+                        <color key="textColor" name="PrimaryColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10-09-2025" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeA-cf-3xf">
                         <rect key="frame" x="129.33333333333334" y="66" width="91.333333333333343" height="14"/>
                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
-                        <color key="textColor" name="AccentColor"/>
+                        <color key="textColor" name="PrimaryColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Team1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ep0-ce-qlz">
                         <rect key="frame" x="8" y="115" width="135.66666666666666" height="16"/>
                         <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="16"/>
-                        <color key="textColor" name="AccentColor"/>
+                        <color key="textColor" name="PrimaryColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="p6x-0n-WSm"/>
+            <color key="backgroundColor" name="cardcolor"/>
             <constraints>
                 <constraint firstItem="ep0-ce-qlz" firstAttribute="leading" secondItem="pOk-aF-1aX" secondAttribute="leading" constant="8" id="7Zp-dH-6Fx"/>
                 <constraint firstItem="kvt-Ta-GVz" firstAttribute="centerX" secondItem="FeA-cf-3xf" secondAttribute="centerX" id="F3m-yX-qzV"/>
@@ -108,14 +109,11 @@
     <resources>
         <image name="cricket" width="2000" height="2000"/>
         <image name="football" catalog="system" width="128" height="123"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="CardBG">
-            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="PrimaryColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="cardcolor">
+            <color red="0.0" green="0.46666666666666667" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
