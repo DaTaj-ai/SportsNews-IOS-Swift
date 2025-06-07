@@ -16,6 +16,7 @@ class FavoritesViewController: UITableViewController, FavoritesViewControllerPro
     
     var presenter: FavoritePresenter?
     
+    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,7 +110,7 @@ class FavoritesViewController: UITableViewController, FavoritesViewControllerPro
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     
@@ -202,21 +203,37 @@ class FavoritesViewController: UITableViewController, FavoritesViewControllerPro
     // MARK: - Table View Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        let storyboard = UIStoryboard(name: "LeaguesTableView", bundle: nil)
-        guard let eventsVC = storyboard.instantiateViewController(withIdentifier: "Leagues") as? LeagueEventsCollectionViewController else {
-            print("ViewController with identifier 'Leagues' not found")
-            return
+        print("Tabed")
+        NetworkManager.isInternetAvailable { isConnected in
+            if isConnected {
+                print("Internet connection is available")
+                DispatchQueue.main.async {
+                    let storyboard = UIStoryboard(name: "LeagueEventsView", bundle: nil)
+                    
+                    guard let leagueVC = storyboard.instantiateViewController(withIdentifier: "LeagueEventsCollectionViewController") as? LeagueEventsCollectionViewController else {
+                        fatalError("LeagueEventsCollectionViewController not found in storyboard.")
+                    }
+                    if let leagueKey = self.presenter?.favoritesLeagueList[indexPath.row].leagueKey{
+                        leagueVC.leagueKey = leagueKey
+                        print("yes")
+                    }
+                    else{
+                        leagueVC.leagueKey = "210"
+                        print("nooooooooooo")
+
+                    }
+                    leagueVC.sportType = self.presenter?.favoritesLeagueList[indexPath.row].endPoint
+                    leagueVC.favoriteLeague = self.presenter?.favoritesLeagueList[indexPath.row]
+                    self.navigationController?.pushViewController(leagueVC, animated: true)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    print("No internet connection")
+                    NetworkManager.showNoInternetAlert(on: self)
+                }
+            }
         }
-        
-        if let league = presenter?.favoritesLeagueList[indexPath.row] {
-            eventsVC.leagueKey = String(league.leagueName )
-            eventsVC.sportType = league.endPoint
-            eventsVC.favoriteLeague = league
-        }
-        
-        navigationController?.pushViewController(eventsVC, animated: true)
+                
     }
     
     

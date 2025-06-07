@@ -32,6 +32,9 @@ class LocalDataSouce {
                 managedObject.setValue(favoriteLeague.leagueName, forKey: "leagueName")
                 managedObject.setValue(favoriteLeague.endPoint, forKey: "endPoint")
                 managedObject.setValue(favoriteLeague.leagueImageUrl, forKey: "leagueImageUrl")
+            managedObject.setValue(favoriteLeague.leagueKey, forKey: "leagueKey")
+        
+            
 
                 
             do {
@@ -51,11 +54,19 @@ static func getFavoriteLeague() -> [FavoriteLeague] {
         do {
             let localNews = try context.fetch(fetchRequest)
             for item in localNews {
-                let localFavoriteLeague = FavoriteLeague(leagueName: "", leagueImageUrl: "", endPoint: "")
+                let localFavoriteLeague = FavoriteLeague(leagueName: "", leagueImageUrl: "", endPoint: "",leagueKey: "")
                 print("data from local database -> ")
                 localFavoriteLeague.endPoint = item.value( forKey: "endPoint") as! String
                 localFavoriteLeague.leagueName = item.value( forKey: "leagueName") as! String
                 localFavoriteLeague.leagueImageUrl = item.value( forKey: "leagueImageUrl") as! String
+                if let key = item.value(forKey: "leagueKey") as? String {
+                    localFavoriteLeague.leagueKey = key
+                } else {
+                    print("⚠️ Couldn't cast leagueKey to String or it was nil")
+                    localFavoriteLeague.leagueKey = "Unknown"
+                }
+
+                
                 favoriteLeagues.append(localFavoriteLeague)
             }
             

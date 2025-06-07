@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22A5266r" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="22H527" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="FavorteLeaguesV1" representedClassName="FavorteLeaguesV1" syncable="YES" codeGenerationType="class">
         <attribute name="endPoint" optional="YES" attributeType="String"/>
         <attribute name="leagueImageUrl" optional="YES" attributeType="String"/>
+        <attribute name="leagueKey" optional="YES" attributeType="String"/>
         <attribute name="leagueName" optional="YES" attributeType="String"/>
     </entity>
 </model>

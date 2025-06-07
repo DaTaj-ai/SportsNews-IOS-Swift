@@ -11,10 +11,12 @@ class FavoriteLeague{
     var leagueName : String
     var leagueImageUrl : String
     var endPoint : String
+    var leagueKey:String
     
-    init(leagueName : String , leagueImageUrl : String , endPoint : String ){
+    init(leagueName : String , leagueImageUrl : String , endPoint : String,leagueKey:String ){
         self.leagueImageUrl = leagueImageUrl
         self.leagueName = leagueName
         self.endPoint = endPoint
+        self.leagueKey=leagueKey
     }
 }

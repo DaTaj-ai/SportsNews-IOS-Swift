@@ -95,7 +95,7 @@ class LeaguesTableViewController: UITableViewController ,LeaguesTableViewControl
                         leagueVC.leagueKey = "210"
                     }
                     leagueVC.sportType = self.presenter.endPoint
-                    leagueVC.favoriteLeague = FavoriteLeague(leagueName: self.presenter.leaguesResponse?.result[indexPath.row].leagueName ?? "No name", leagueImageUrl:self.presenter.leaguesResponse?.result[indexPath.row].leagueLogo ?? "No name" , endPoint: self.presenter.endPoint)
+                    leagueVC.favoriteLeague = FavoriteLeague(leagueName: self.presenter.leaguesResponse?.result[indexPath.row].leagueName ?? "name", leagueImageUrl:self.presenter.leaguesResponse?.result[indexPath.row].leagueLogo ?? "No name" , endPoint: self.presenter.endPoint,leagueKey: String(self.presenter.leaguesResponse?.result[indexPath.row].leagueKey ?? 210))
                     self.navigationController?.pushViewController(leagueVC, animated: true)
                 }
             } else {
