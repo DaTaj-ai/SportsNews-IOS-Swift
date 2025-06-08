@@ -12,7 +12,7 @@
         <!--League Events Collection View Controller-->
         <scene sceneID="vjl-yG-qX6">
             <objects>
-                <collectionViewController storyboardIdentifier="eventsdetailsid" id="YtH-e1-EcV" customClass="LeagueEventsCollectionViewController" customModule="SportsNews_IOS_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="LeagueEventsCollectionViewController" id="YtH-e1-EcV" customClass="LeagueEventsCollectionViewController" customModule="SportsNews_IOS_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="7ad-rk-5D7">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

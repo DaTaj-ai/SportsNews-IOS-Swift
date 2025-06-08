@@ -10,7 +10,8 @@ import Kingfisher
 private let reuseIdentifier = "Cell"
 
 class HomeViewController: UICollectionViewController , HomeViewControllerProtocol {
-    
+    private let headerTitle = "Sports"
+
     var sportsList: [SportsCategory] = []
     
     func renderTableView(res:[SportsCategory]) {
@@ -23,30 +24,34 @@ class HomeViewController: UICollectionViewController , HomeViewControllerProtoco
 
     var presenter:HomePresenter!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if isMovingToParent || isBeingPresented {
+            navigationController?.setNavigationBarHidden(true, animated: animated)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "HomeCollectionViewCell", bundle: nil)
         
         collectionView.register(nib, forCellWithReuseIdentifier: "sportCell")
-        
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        collectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        collectionView.register(
+            HomeHeaderView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: HomeHeaderView.reuseIdentifier
+        )
+        collectionView.collectionViewLayout = createCompositionalLayout()
+                
         presenter = HomePresenter(vc: self)
         presenter.getDataFromService()
-        
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -54,7 +59,6 @@ class HomeViewController: UICollectionViewController , HomeViewControllerProtoco
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return sportsList.count
     }
 	
@@ -68,58 +72,90 @@ class HomeViewController: UICollectionViewController , HomeViewControllerProtoco
         return cell
     }
 
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }
 
 extension HomeViewController : UICollectionViewDelegateFlowLayout{
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width:(collectionView.frame.width * 0.5)-10 , height:150)
-//        //(collectionView.frame.width * 0.5)
-//    }
-//
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let size = UIScreen.main.bounds.width * 0.47
-        return CGSize(width: size, height: 320)
-    }
-    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Tabed")
-        let storyboard = UIStoryboard(name: "LeaguesTableView", bundle: nil)
-        let mySVC = storyboard.instantiateViewController(withIdentifier: "LeaguesScreen") as! LeaguesTableViewController
-    
-        mySVC.presenter = LeaguesTablePresenter(vc: mySVC, endPoint:sportsList[indexPath.row].endPoint )
-        self.navigationController?.pushViewController(mySVC, animated: true)
-
+        
+        NetworkManager.isInternetAvailable { isConnected in
+            if isConnected {
+                print("Internet connection is available")
+                DispatchQueue.main.async {
+                    let storyboard = UIStoryboard(name: "LeaguesTableView", bundle: nil)
+                    let mySVC = storyboard.instantiateViewController(withIdentifier: "LeaguesScreen") as! LeaguesTableViewController
+                
+                    mySVC.presenter = LeaguesTablePresenter(vc: mySVC, endPoint:self.sportsList[indexPath.row].endPoint )
+                    self.navigationController?.pushViewController(mySVC, animated: true)
+                    
+                }
+            } else {
+                DispatchQueue.main.async {
+                    print("No internet connection")
+                    NetworkManager.showNoInternetAlert(on: self)
+                }
+                
+            }
+        }
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        print("Collection view frame: \(collectionView.frame)")
+        print("Collection view content size: \(collectionView.contentSize)")
+    }
+    private func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
+        let layout = UICollectionViewCompositionalLayout { sectionIndex, _ in
+
+            let itemSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(0.482),
+                heightDimension: .fractionalHeight(1.0))
+            
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            item.contentInsets = .zero
+            
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(320))
+            
+            let group = NSCollectionLayoutGroup.horizontal(
+                layoutSize: groupSize,
+                subitems: [item, item])
+            
+            group.interItemSpacing = .fixed(12) // Increased from 1 for better visibility
+            
+            let section = NSCollectionLayoutSection(group: group)
+            section.interGroupSpacing = 12
+            section.contentInsets = .init(top: 12, leading: 12, bottom: 10, trailing: 12)
+            
+            
+            let headerSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(20))
+            
+            let header = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: headerSize,
+                elementKind: UICollectionView.elementKindSectionHeader,
+                alignment: .top)
+            
+            section.boundarySupplementaryItems = [header]
+            
+            return section
+        }
+        
+        return layout
+    }
+     
+     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+         guard kind == UICollectionView.elementKindSectionHeader else {
+             return UICollectionReusableView()
+         }
+         
+         let header = collectionView.dequeueReusableSupplementaryView(
+             ofKind: kind,
+             withReuseIdentifier: HomeHeaderView.reuseIdentifier,
+             for: indexPath) as! HomeHeaderView
+         
+         header.titleLabel.text = headerTitle
+         return header
+     }
 }
