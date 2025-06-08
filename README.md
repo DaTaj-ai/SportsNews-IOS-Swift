@@ -14,17 +14,11 @@ Lottie is integrated for animations.
 ### 🏠 Home Tab ("Sports")
 
 * Displays a collection of all sports (fetched from SportsDB API).
-* Sports shown in a 2-column `UICollectionView` with spacing.
-* Each sport includes:
-
-  * Thumbnail image (`strSportThumb`)
-  * Sport name (`strSport`)
 * Tapping a sport navigates to the **Leagues View**.
 
 ### ⭐ Favorites Tab
 
-* Displays user's favorite leagues using **Core Data**.
-* Same UI layout as the Leagues View.
+* Displays user's favorite leagues using **Core Data**
 * On row click:
 
   * If online: navigate to **League Details View**.
@@ -53,7 +47,7 @@ Lottie is integrated for animations.
   2. **Latest Events** (Vertical `UICollectionView`):
 
      * Home team vs away team
-     * Scores (`intHomeScore`, `intAwayScore`), date, time, images
+     * Scores, date, time, images
   3. **Teams** (Horizontal `UICollectionView`):
 
      * Circular team images
@@ -87,19 +81,9 @@ Lottie is integrated for animations.
 
 ---
 
-## 👨‍💻 Contributors
-
-| Name       
-|
-| -------------------------------------------------------------------- 
-|
-| * Mohamed Tag Eldeen  
-| * Youssef AbdElkader
-
-
-📩 Contact:
-
-* 📱 Mobile: 01119921743
+## 👨‍💻 Contributors      
+* Mohamed Tag Eldeen
+* Youssef AbdElkader
 
 ## 🚀 Running the Project
 
