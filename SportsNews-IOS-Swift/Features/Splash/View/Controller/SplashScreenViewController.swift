@@ -16,10 +16,11 @@ class SplashScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         playLottieAnimation()
+
     }
 
     private func playLottieAnimation() {
-        lottieView = LottieAnimationView(name: "goal2")
+        lottieView = LottieAnimationView(name: "goal")
         lottieView.frame = animationView.bounds
         lottieView.contentMode = .scaleAspectFit
         lottieView.loopMode = .playOnce
@@ -28,16 +29,17 @@ class SplashScreenViewController: UIViewController {
 
         lottieView.play { [weak self] finished in
             if finished {
-                self?.navigateToMainScreen()
+                self?.navigateToNextScreen()
             } else {
                 print("⚠️ Lottie animation did not complete.")
             }
         }
     }
 
-    private func navigateToMainScreen() {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainVC = mainStoryboard.instantiateInitialViewController()
+    private func navigateToNextScreen() {
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+
+        let nextVC = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController")
 
         guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let sceneDelegate = scene.delegate as? SceneDelegate,
@@ -45,8 +47,8 @@ class SplashScreenViewController: UIViewController {
             return
         }
 
-        window.rootViewController = mainVC
+        window.rootViewController = nextVC
         window.makeKeyAndVisible()
     }
-}
 
+}
