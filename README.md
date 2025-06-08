@@ -33,8 +33,8 @@ Lottie is integrated for animations.
 * A `UITableViewController` titled "Leagues".
 * Each row is a custom cell with:
 
-  * Circular league badge (`strBadge`)
-  * League name (`strLeague`)
+  * Circular league badge 
+  * League name
 * On tap: navigates to **League Details View**.
 
 ### 🧾 League Details View
