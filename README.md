@@ -9,6 +9,10 @@ Lottie is integrated for animations.
 
 ---
 
+
+https://github.com/user-attachments/assets/ac99a93e-9d8f-42c2-bc99-27499b74c293
+
+
 ## 📱 App Features
 
 ### 🏠 Home Tab ("Sports")
